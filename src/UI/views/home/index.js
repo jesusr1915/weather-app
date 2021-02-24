@@ -1,19 +1,27 @@
 import * as React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
+import {Header, BackgroundContainer} from '~/UI/components';
 import {styles} from './styles';
 
 export const Home = ({navigation}) => {
-  console.log('navigation -> ', navigation);
-
   return (
-    <View style={styles.container}>
-      <Text>home</Text>
+    <BackgroundContainer>
+      <SafeAreaView style={styles.container}>
+        <Header />
+      </SafeAreaView>
+    </BackgroundContainer>
+  );
+};
+
+/**
+
+ <Text>home</Text>
       <TouchableOpacity onPress={() => navigation.navigate('MAP')}>
         <Text>go map</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('DETAIL')}>
         <Text>go detail</Text>
       </TouchableOpacity>
-    </View>
-  );
-};
+
+
+ */
