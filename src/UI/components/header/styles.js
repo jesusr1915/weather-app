@@ -6,6 +6,31 @@ export const styles = StyleSheet.create({
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'red',
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    marginTop: 8,
+  },
+
+  titleContainer: {
+    flexGrow: 1,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  title: {
+    fontSize: 19,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+
+  iconContainer: {
+    width: 30,
+    height: 30,
+  },
+
+  icon: {
+    borderColor: 'blue',
+    borderWidth: 1,
   },
 });

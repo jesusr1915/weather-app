@@ -1,27 +1,21 @@
 import * as React from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {Header, BackgroundContainer} from '~/UI/components';
+
+import {MapIcon, ListIcon} from '~/assets/icons';
 import {styles} from './styles';
 
 export const Home = ({navigation}) => {
+  const [listType, setListType] = React.useState(true);
+
   return (
     <BackgroundContainer>
       <SafeAreaView style={styles.container}>
-        <Header />
+        <Header
+          rightIcon={listType ? ListIcon : MapIcon}
+          rightIconOnPress={() => setListType(!listType)}
+        />
       </SafeAreaView>
     </BackgroundContainer>
   );
 };
-
-/**
-
- <Text>home</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('MAP')}>
-        <Text>go map</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('DETAIL')}>
-        <Text>go detail</Text>
-      </TouchableOpacity>
-
-
- */
