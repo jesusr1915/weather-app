@@ -1,10 +1,17 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
+import {useSelector} from 'react-redux';
+import {ItemList} from './item-list';
 
 export const List = () => {
+  const cities = useSelector(({home}) => home.cities);
+
   return (
     <View style={styles.container}>
-      <Text>List</Text>
+      <ScrollView style={{width: '95%', flex: 1}}>
+        {Boolean(cities.length) &&
+          cities.map((city) => <ItemList city={city} key={city.name} />)}
+      </ScrollView>
     </View>
   );
 };
@@ -14,6 +21,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 16,
   },
 });
