@@ -1,11 +1,13 @@
 import * as React from 'react';
-import {ReduxProvider} from './providers/redux.provider';
+import {ReduxProvider, AppProvider} from './providers';
 import {Navigation} from '~/navigation';
 
 export const WeatherApp = () => {
   return (
     <ReduxProvider>
-      <Navigation />
+      <AppProvider>
+        <Navigation />
+      </AppProvider>
     </ReduxProvider>
   );
 };
