@@ -1,28 +1,23 @@
 import * as React from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
+import {View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {ItemList} from './item-list';
+import {styles} from './styles';
 
 export const List = ({navigation}) => {
   const cities = useSelector(({home}) => home.cities);
-
+  const isCitiesDataValid = Boolean(cities.length);
   return (
     <View style={styles.container}>
-      <ScrollView style={{width: '95%', flex: 1}}>
-        {Boolean(cities.length) &&
-          cities.map((city) => (
-            <ItemList city={city} navigation={navigation} key={city.name} />
-          ))}
-      </ScrollView>
+      {isCitiesDataValid &&
+        cities.map((city, index) => (
+          <ItemList city={city} navigation={navigation} key={index} />
+        ))}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    marginTop: 16,
-  },
-});
+List.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};

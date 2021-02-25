@@ -1,9 +1,11 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {useSelector} from 'react-redux';
+import {BoxDetail} from './box-detail';
 import {styles} from './styles';
-import {Detail} from './detail';
+import {Marker} from './marker';
 
 export const Map = ({navigation}) => {
   const cities = useSelector(({home}) => home.cities);
@@ -13,6 +15,7 @@ export const Map = ({navigation}) => {
     latitudeDelta: 17.427136548210935,
     longitudeDelta: 9.622691385447979,
   };
+
   const [region, setRegion] = React.useState(initialRegion);
   const [selectedCity, setSelectedCity] = React.useState(null);
 
@@ -28,18 +31,16 @@ export const Map = ({navigation}) => {
     <View style={styles.container}>
       <MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
         {cities.map((city, index) => (
-          <Marker
-            key={index}
-            coordinate={{
-              latitude: city.lat,
-              longitude: city.lon,
-            }}
-            onPress={(event) => onPressMarket(event, city)}
-            title={city.name}
-          />
+          <Marker city={city} onPress={onPressMarket} key={index} />
         ))}
       </MapView>
-      {selectedCity && <Detail city={selectedCity} navigation={navigation} />}
+      {selectedCity && (
+        <BoxDetail city={selectedCity} navigation={navigation} />
+      )}
     </View>
   );
+};
+
+Map.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };

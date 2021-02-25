@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import PropTypes from 'prop-types';
+import {SafeAreaView} from 'react-native';
 import {Header, BackgroundContainer} from '~/UI/components';
 import {NativeViewDetail} from '~/UI/views';
+import {styles} from './styles';
 
 export const Detail = ({navigation, route}) => {
   const {city} = route.params;
-  console.log('city => ', city);
-
   return (
     <BackgroundContainer>
       <SafeAreaView style={styles.container}>
@@ -14,17 +14,14 @@ export const Detail = ({navigation, route}) => {
         <NativeViewDetail
           cityName={city.name}
           temperature={`${city.celsius} °C`}
-          style={{width: '100%', height: '100%'}}
+          style={styles.nativeView}
         />
       </SafeAreaView>
     </BackgroundContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-  },
-});
+Detail.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
+};

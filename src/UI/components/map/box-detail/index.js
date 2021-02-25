@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {TouchableOpacity, Text} from 'react-native';
 import {styles} from './styles';
 
-export const Detail = ({city, navigation}) => {
+export const BoxDetail = ({city, navigation}) => {
   return (
     <TouchableOpacity
       style={styles.container}
@@ -15,7 +15,7 @@ export const Detail = ({city, navigation}) => {
   );
 };
 
-Detail.propTypes = {
+BoxDetail.propTypes = {
   city: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
 };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {View, Text, TouchableOpacity} from 'react-native';
+import * as ROUTES from '~/navigation/routes';
 import {styles} from './styles';
 
 export const ItemList = ({city, navigation}) => {
@@ -10,7 +11,7 @@ export const ItemList = ({city, navigation}) => {
     <TouchableOpacity
       style={styles.container}
       activeOpacity={0.8}
-      onPress={() => navigation.navigate('DETAIL', {city})}>
+      onPress={() => navigation.navigate(ROUTES.DETAIL, {city})}>
       <Text style={styles.name}>{city.name}</Text>
       <View style={styles.temperatureContainer}>
         <Text style={styles.temperature}>

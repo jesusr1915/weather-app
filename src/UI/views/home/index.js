@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {SafeAreaView} from 'react-native';
 import {Header, BackgroundContainer, List, Map} from '~/UI/components';
 import {MapIcon, ListIcon} from '~/assets/icons';
@@ -29,4 +30,8 @@ export const Home = ({navigation}) => {
       </SafeAreaView>
     </BackgroundContainer>
   );
+};
+
+Home.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
