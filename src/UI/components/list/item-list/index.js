@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
 
-export const ItemList = ({city}) => {
+export const ItemList = ({city, navigation}) => {
   const [celsius, setCelsius] = React.useState(true);
+
   return (
-    <TouchableOpacity style={styles.container} activeOpacity={0.8}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate('DETAIL', {city})}>
       <Text style={styles.name}>{city.name}</Text>
       <View style={styles.temperatureContainer}>
         <Text style={styles.temperature}>
@@ -30,4 +34,5 @@ export const ItemList = ({city}) => {
 
 ItemList.propTypes = {
   city: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };

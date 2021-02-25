@@ -5,7 +5,7 @@ import {MapIcon, ListIcon} from '~/assets/icons';
 import {useHttp} from '~/hooks';
 import {styles} from './styles';
 
-export const Home = () => {
+export const Home = ({navigation}) => {
   const [listType, setListType] = React.useState(true);
   const {getCities} = useHttp();
 
@@ -21,7 +21,11 @@ export const Home = () => {
           rightIcon={listType ? MapIcon : ListIcon}
           rightIconOnPress={() => setListType(!listType)}
         />
-        {listType ? <List /> : <Map />}
+        {listType ? (
+          <List navigation={navigation} />
+        ) : (
+          <Map navigation={navigation} />
+        )}
       </SafeAreaView>
     </BackgroundContainer>
   );

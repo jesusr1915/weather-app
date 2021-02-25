@@ -3,14 +3,16 @@ import {View, ScrollView, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import {ItemList} from './item-list';
 
-export const List = () => {
+export const List = ({navigation}) => {
   const cities = useSelector(({home}) => home.cities);
 
   return (
     <View style={styles.container}>
       <ScrollView style={{width: '95%', flex: 1}}>
         {Boolean(cities.length) &&
-          cities.map((city) => <ItemList city={city} key={city.name} />)}
+          cities.map((city) => (
+            <ItemList city={city} navigation={navigation} key={city.name} />
+          ))}
       </ScrollView>
     </View>
   );
