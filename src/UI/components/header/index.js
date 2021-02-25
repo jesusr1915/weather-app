@@ -1,11 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text} from 'react-native';
 import {styles} from './styles';
 import {BackIcon} from '~/assets/icons';
 import {Icon} from './icon';
-
-// <Header listType={listType} setListType={setListType} />
 
 export const Header = ({
   title,
@@ -22,7 +20,7 @@ export const Header = ({
       </View>
 
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>{title ?? 'Cities'}</Text>
+        <Text style={styles.title}>{title ?? ''}</Text>
       </View>
 
       <View style={styles.iconContainer}>
@@ -32,4 +30,9 @@ export const Header = ({
   );
 };
 
-Header.propTypes = {};
+Header.propTypes = {
+  title: PropTypes.string,
+  backIconOnpress: PropTypes.func,
+  rightIcon: PropTypes.func,
+  rightIconOnPress: PropTypes.func,
+};

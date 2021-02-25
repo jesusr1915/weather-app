@@ -17,6 +17,7 @@ export const Home = () => {
     <BackgroundContainer>
       <SafeAreaView style={styles.container}>
         <Header
+          title={listType ? 'List' : 'Map'}
           rightIcon={listType ? MapIcon : ListIcon}
           rightIconOnPress={() => setListType(!listType)}
         />
