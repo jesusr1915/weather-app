@@ -33,8 +33,8 @@ export const getCitiesResponse = {
     },
     {
       name: 'Durango',
-      lat: 37.27528,
-      lon: -107.880066,
+      lat: 24.021426,
+      lon: -104.653902,
       celsius: 19,
       fahrenheit: 67,
     },

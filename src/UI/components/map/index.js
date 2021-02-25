@@ -1,53 +1,45 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {useSelector} from 'react-redux';
+import {styles} from './styles';
+import {Detail} from './detail';
 
 export const Map = () => {
   const cities = useSelector(({home}) => home.cities);
+  const initialRegion = {
+    latitude: 22.19961217270042,
+    longitude: -101.41680272296071,
+    latitudeDelta: 17.427136548210935,
+    longitudeDelta: 9.622691385447979,
+  };
+  const [region, setRegion] = React.useState(initialRegion);
+  const [selectedCity, setSelectedCity] = React.useState(null);
 
-  const [region, setRegion] = React.useState({
-    latitude: 25.488,
-    longitude: -103.2633,
-    latitudeDelta: 24.9951,
-    longitudeDelta: 14.249,
-  });
-
-  console.log('region => ', region);
-
+  const onPressMarket = ({nativeEvent: {coordinate}}, city) => {
+    setRegion({
+      ...coordinate,
+      latitudeDelta: 0.992,
+      longitudeDelta: 0.05599,
+    });
+    setSelectedCity(city);
+  };
   return (
     <View style={styles.container}>
-      <MapView
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        initialRegion={region}>
-        {cities.map((city, index) => {
-          console.log('test ', city);
-
-          return (
-            <Marker
-              key={index}
-              coordinate={{
-                latitude: city.lat,
-                longitude: city.lon,
-              }}
-              title={city.name}
-            />
-          );
-        })}
+      <MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
+        {cities.map((city, index) => (
+          <Marker
+            key={index}
+            coordinate={{
+              latitude: city.lat,
+              longitude: city.lon,
+            }}
+            onPress={(event) => onPressMarket(event, city)}
+            title={city.name}
+          />
+        ))}
       </MapView>
+      {selectedCity && <Detail city={selectedCity} />}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
