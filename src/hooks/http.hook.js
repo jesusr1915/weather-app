@@ -11,11 +11,11 @@ export const useHttp = () => {
       const cities = await httpClient.fetchCities();
       dispatch(setCities(cities));
     } catch (err) {
-      console.error('catch', err);
+      // TODO: we need to show some alert
+      console.error('error => ', err);
     } finally {
       hideLoading();
     }
   };
-
   return {getCities};
 };
