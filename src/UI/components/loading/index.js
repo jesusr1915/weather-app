@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import LottieView from 'lottie-react-native';
+import {styles} from './styles';
 
 export const Loading = () => (
   <View style={styles.container}>
@@ -11,13 +12,3 @@ export const Loading = () => (
     />
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-  },
-});

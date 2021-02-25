@@ -1,0 +1,62 @@
+export const getCitiesResponse = {
+  status: '01',
+  message: 'succes',
+  data: [
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+    {
+      name: 'Ciudad de México',
+      lat: '30303',
+      lon: '3343',
+      celius: 21,
+      Fahrenheit: 69,
+    },
+  ],
+};

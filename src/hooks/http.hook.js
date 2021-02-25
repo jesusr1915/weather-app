@@ -1,16 +1,17 @@
 import {useApp} from './app.hook';
 import {httpClient} from '~/utils';
+import {setCities} from '~/redux/actions';
 
 export const useHttp = () => {
-  const {showLoading, hideLoading} = useApp();
+  const {showLoading, hideLoading, dispatch} = useApp();
 
   const getCities = async () => {
+    showLoading();
     try {
-      showLoading();
       const cities = await httpClient.fetchCities();
-      console.log('cities -> ', cities);
+      dispatch(setCities(cities));
     } catch (err) {
-      console.log('catch', err);
+      console.error('catch', err);
     } finally {
       hideLoading();
     }
