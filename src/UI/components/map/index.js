@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {useSelector} from 'react-redux';
 import {styles} from './styles';
 import {Detail} from './detail';
 
-export const Map = () => {
+export const Map = ({navigation}) => {
   const cities = useSelector(({home}) => home.cities);
   const initialRegion = {
     latitude: 22.19961217270042,
@@ -39,7 +39,7 @@ export const Map = () => {
           />
         ))}
       </MapView>
-      {selectedCity && <Detail city={selectedCity} />}
+      {selectedCity && <Detail city={selectedCity} navigation={navigation} />}
     </View>
   );
 };

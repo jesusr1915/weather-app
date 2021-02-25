@@ -1,11 +1,23 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import {Header, BackgroundContainer} from '~/UI/components';
+import {NativeViewDetail} from '~/UI/views';
 
-export const Detail = () => {
+export const Detail = ({navigation, route}) => {
+  const {city} = route.params;
+  console.log('city => ', city);
+
   return (
-    <View style={styles.container}>
-      <Text>Detail</Text>
-    </View>
+    <BackgroundContainer>
+      <SafeAreaView style={styles.container}>
+        <Header title={'Detail'} backIconOnpress={() => navigation.goBack()} />
+        <NativeViewDetail
+          cityName={city.name}
+          temperature={`${city.celsius} °C`}
+          style={{width: '100%', height: '100%'}}
+        />
+      </SafeAreaView>
+    </BackgroundContainer>
   );
 };
 
@@ -14,6 +26,5 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
