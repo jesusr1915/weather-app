@@ -1,0 +1,1 @@
+export {adjustSize} from './styles';
