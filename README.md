@@ -11,8 +11,12 @@ ENV = DUMMY
 
 ## npm dependencies
 
-#### You need to run the following command to install all dependencies
+#### You need to run the following commandS to install all dependencies
 
 ```bash
 $ npm install
+```
+
+```bash
+$ npm run update:packages
 ```
