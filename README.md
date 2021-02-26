@@ -14,5 +14,5 @@ ENV = DUMMY
 #### You need to run the following command to install all dependencies
 
 ```bash
-$npm install
+$ npm install
 ```
