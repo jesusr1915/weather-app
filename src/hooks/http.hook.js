@@ -1,5 +1,5 @@
 import {useApp} from './app.hook';
-import {httpClient} from '~/utils';
+import {httpClient} from '~/http-client';
 import {setCities} from '~/redux/actions';
 
 export const useHttp = () => {

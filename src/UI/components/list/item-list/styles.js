@@ -1,17 +1,18 @@
 import {StyleSheet} from 'react-native';
+import {adjustSize} from '~/utils';
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 120,
+    width: '95%',
+    height: adjustSize(120),
     alignItems: 'center',
     backgroundColor: 'rgba(255,255,255,0.45)',
-    marginBottom: 12,
-    borderRadius: 10,
-    paddingVertical: 16,
+    marginBottom: adjustSize(12),
+    borderRadius: adjustSize(10),
+    paddingVertical: adjustSize(16),
   },
   name: {
-    fontSize: 24,
+    fontSize: adjustSize(24),
     color: '#f6f6f6',
   },
   temperatureContainer: {
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
   },
 
   temperature: {
-    fontSize: 32,
+    fontSize: adjustSize(32),
     color: '#f6f6f6',
   },
 
@@ -29,7 +30,7 @@ export const styles = StyleSheet.create({
   },
 
   selectedText: {
-    fontSize: 36,
+    fontSize: adjustSize(36),
     fontWeight: 'bold',
   },
 });

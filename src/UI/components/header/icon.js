@@ -1,12 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {TouchableOpacity} from 'react-native';
+import {adjustSize} from '~/utils';
 
 export const Icon = ({
   source: IconSource,
   onPress,
-  width = 25,
-  height = 25,
+  width = adjustSize(25),
+  height = adjustSize(25),
   fill = 'white',
 }) => {
   return (

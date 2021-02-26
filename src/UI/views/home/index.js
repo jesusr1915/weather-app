@@ -5,6 +5,7 @@ import {Header, BackgroundContainer, List, Map} from '~/UI/components';
 import {MapIcon, ListIcon} from '~/assets/icons';
 import {useHttp} from '~/hooks';
 import {styles} from './styles';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export const Home = ({navigation}) => {
   const [listType, setListType] = React.useState(true);
@@ -22,8 +23,11 @@ export const Home = ({navigation}) => {
           rightIcon={listType ? MapIcon : ListIcon}
           rightIconOnPress={() => setListType(!listType)}
         />
+
         {listType ? (
-          <List navigation={navigation} />
+          <ScrollView style={styles.scroll}>
+            <List navigation={navigation} />
+          </ScrollView>
         ) : (
           <Map navigation={navigation} />
         )}

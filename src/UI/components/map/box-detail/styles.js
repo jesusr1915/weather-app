@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {adjustSize} from '~/utils';
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,10 +7,10 @@ export const styles = StyleSheet.create({
     height: '20%',
     backgroundColor: '#f6f6f6',
     alignItems: 'center',
-    paddingTop: 16,
+    paddingTop: adjustSize(8),
   },
   text: {
-    fontSize: 22,
+    fontSize: adjustSize(22),
     fontWeight: 'bold',
     color: '#212121',
   },

@@ -1,14 +1,15 @@
 import {StyleSheet} from 'react-native';
+import {adjustSize} from '~/utils';
 
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 60,
+    height: adjustSize(60),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    paddingHorizontal: 16,
-    marginTop: 8,
+    paddingHorizontal: adjustSize(16),
+    marginTop: adjustSize(8),
   },
 
   titleContainer: {
@@ -19,18 +20,13 @@ export const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 19,
+    fontSize: adjustSize(19),
     fontWeight: 'bold',
     color: 'white',
   },
 
   iconContainer: {
-    width: 30,
-    height: 30,
-  },
-
-  icon: {
-    borderColor: 'blue',
-    borderWidth: 1,
+    width: adjustSize(30),
+    height: adjustSize(30),
   },
 });
