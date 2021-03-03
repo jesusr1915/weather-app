@@ -12,13 +12,13 @@ class ViewDetail: UIView {
   @IBOutlet weak var nameLbl: UILabel!
   @IBOutlet weak var temperatureLbl: UILabel!
   
-  @objc var cityName = "Tlahita la bella" {
+  @objc var cityName = "" {
     didSet {
       self.setupView()
     }
   }
   
-  @objc var temperature = "temperature" {
+  @objc var temperature = "" {
     didSet {
       self.setupView()
     }
