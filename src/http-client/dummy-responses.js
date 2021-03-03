@@ -1,6 +1,6 @@
 export const getCitiesResponse = {
   status: '01',
-  message: 'succes',
+  message: 'success',
   data: [
     {
       name: 'Ciudad de México',
